@@ -1,0 +1,26 @@
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:@typescript-eslint/recommended-requiring-type-checking
+  - prettier
+
+rules:
+  "@typescript-eslint/explicit-module-boundary-types": "warn"
+  "@typescript-eslint/no-namespace": "off"
+  "@typescript-eslint/no-non-null-assertion": "off"
+  "@typescript-eslint/no-unused-vars":
+    - "warn"
+    - varsIgnorePattern: "^_"
+      args: "none"
+      ignoreRestSiblings: true
+
+ignorePatterns:
+  - scripts
+
+overrides:
+  - files:
+      - "src/**/*.ts"
+    parserOptions:
+      project: tsconfig.json
+    env:
+      browser: true
